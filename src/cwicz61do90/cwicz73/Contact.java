@@ -63,7 +63,7 @@ class Contact {
         return Objects.hash(firstName, lastName, telephone, email);
     }
 
-    String getShortInfo() {
+    public String getShortInfo() {
         return firstName + " " + lastName + " " + telephone;
     }
 }

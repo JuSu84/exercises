@@ -1,16 +1,33 @@
 package cwicz61do90.cwicz73;
 
-import java.util.Optional;
 import java.util.Scanner;
 
 class ContactApp {
     public static void main(String[] args) {
-        ContactManager contactManager = ContactReader.readFile("contacts.csv");
+        ContactReader.readFile("contacts.csv")
+                .ifPresentOrElse(ContactApp::findByEmail, ContactApp::fileNotFoundMessage);
+
+    }
+
+    private static void findByEmail(ContactManager contactManager) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj adres email do wyszukania kontaktu:");
         String email = scanner.nextLine();
-        Optional<Contact> contactByEmail = contactManager.findByEmail(email);
+        contactManager.findByEmail(email)
+                .ifPresentOrElse(ContactApp::showShortInfo, ContactApp::contactNotFoundMessage);
+
+    }
+
+    private static void showShortInfo(Contact contactByEmail) {
         System.out.println("Kontakt o wskazanym adresie email:");
         System.out.println(contactByEmail.getShortInfo());
+    }
+
+    private static void fileNotFoundMessage() {
+        System.out.println("Brak pliku z danymi");
+    }
+
+    private static void contactNotFoundMessage() {
+        System.out.println("Brak kontaktu o podanym adresie email");
     }
 }
