@@ -1,8 +1,6 @@
 package cwicz1do30.cwicz22.io;
 
 import cwicz1do30.cwicz22.logic.Hospital;
-import cwicz1do30.cwicz22.model.Patient;
-
 
 import java.util.Scanner;
 
@@ -33,19 +31,19 @@ public class DataReader {
 
     private void checkChoice() {
         switch (userChoise) {
-            case add -> {
-                Patient patient = new Patient();
-                System.out.println("Imię: ");
-                patient.setFirstName(sc.nextLine());
-                System.out.println("Nazwisko: ");
-                patient.setLastName(sc.nextLine());
-                System.out.println("PESEL: ");
-                patient.setPesel(sc.nextLine());
-                hospital.addNewPatient(patient);
-            }
-            case showList -> hospital.printListOfPatients();
-            case exit -> System.out.println("Zamykam program");
-            default -> System.out.println("Wybrana opcja jest niepoprawna");
+//            case add -> {
+//                Patient patient = new Patient();
+//                System.out.println("Imię: ");
+//                patient.setFirstName(sc.nextLine());
+//                System.out.println("Nazwisko: ");
+//                patient.setLastName(sc.nextLine());
+//                System.out.println("PESEL: ");
+//                patient.setPesel(sc.nextLine());
+//                hospital.addNewPatient(patient);
+//            }
+//            case showList -> hospital.printListOfPatients();
+//            case exit -> System.out.println("Zamykam program");
+//            default -> System.out.println("Wybrana opcja jest niepoprawna");
         }
     }
 }
